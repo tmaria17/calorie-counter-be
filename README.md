@@ -37,6 +37,8 @@ Checkout the frontend here: https://github.com/mnhollandplum/calorie-tracker-fe
   
  ## Schema Design
 
+ ![screenshot of schema](https://raw.githubusercontent.com/tmaria17/calorie-counter-be/master/schema.png)
+
 ## Known Issues
 
 ## How to Contribute 
