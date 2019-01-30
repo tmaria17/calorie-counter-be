@@ -16,7 +16,7 @@ describe('Client Routes', () => {
       done();
     });
   });
-  
+
   it('should return a 404 for a route that does not exist', done => {
     chai.request(server)
     .get('/sad')
@@ -29,5 +29,19 @@ describe('Client Routes', () => {
 
 
 describe('API Routes', () => {
+  before((done) => {
+    database.migrate.latest()
+      .then(() => done())
+      .catch(error => {
+        throw error;
+      });
+  });
 
+  beforeEach((done) => {
+    database.seed.run()
+      .then(() => done())
+      .catch(error => {
+        throw error;
+      });
+  });
 });
