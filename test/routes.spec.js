@@ -23,6 +23,8 @@ describe('Client Routes', () => {
     .end((err, response) => {
       response.should.have.status(404);
       done();
+      process.exit(1);
+
     });
   });
 });
@@ -45,5 +47,5 @@ describe('API Routes', () => {
       });
   });
 
-  
+
 });
