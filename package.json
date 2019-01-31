@@ -1,0 +1,33 @@
+{
+  "name": "calorie-counter-be",
+  "version": "1.0.0",
+  "description": "# Sweater Weather ## Introduction  This project is an express API. This API has food and meal endpoints, and will be consumed by a seprate frontend to create a calorie tracker app.",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "dependencies": {
+    "chai": "^4.2.0",
+    "chai-http": "^4.2.1",
+    "express": "^4.16.4",
+    "knex": "^0.16.3",
+    "pg": "^7.8.0"
+  },
+  "devDependencies": {
+    "mocha": "^5.2.0"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tmaria17/calorie-counter-be.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tmaria17/calorie-counter-be/issues"
+  },
+  "homepage": "https://github.com/tmaria17/calorie-counter-be#readme"
+}
