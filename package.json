@@ -19,7 +19,8 @@
   },
   "scripts": {
     "start": "node index.js",
-    "test": "mocha"
+    "test": "mocha --exit"
+},
   },
   "repository": {
     "type": "git",
