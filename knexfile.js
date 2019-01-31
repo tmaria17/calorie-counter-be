@@ -30,12 +30,16 @@ module.exports = {
   },
 
   production: {
-    client: 'postgresql',
-    connection: {
-      database: 'my_db',
-      user:     'username',
-      password: 'password'
+    client: 'pg',
+    connection: process.env.DATABASE_URL + '?ssl=true',
+    migrations: {
+      directory: './db/migrations'
     },
+    seeds: {
+      directory: './db/seeds/production'
+    },
+    useNullAsDefault: true
+  },
     pool: {
       min: 2,
       max: 10
@@ -43,6 +47,4 @@ module.exports = {
     migrations: {
       tableName: 'knex_migrations'
     }
-  }
-
-};
+  };
