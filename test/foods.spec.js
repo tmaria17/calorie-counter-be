@@ -60,4 +60,26 @@ describe('API Routes for Foods', () => {
          });
        });
     });
+  describe('POST /api/v1/foods',() => {
+    it('should return info for the new food', done => {
+      chai.request(server)
+      .post('/api/v1/foods')
+      .send({
+         "name": "Chocolate Frogs",
+         "calories": 92
+       })
+       .end((err,response) => {
+         response.should.have.status(201);
+         response.should.be.json;
+         response.body.should.be.a('object');
+         response.body.should.have.property('food');
+         response.body.food.should.have.property('name');
+         response.body.food.should.have.property('calories');
+         response.body.food.calories.should.equal(92);
+         response.body.food.name.should.equal('Chocolate Frogs');
+         done();
+       });
+    });
   });
+
+});
