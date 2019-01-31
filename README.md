@@ -1,10 +1,9 @@
 # calorie-counter-be
 
-# Sweater Weather
 ## Introduction
  This project is an express API. This API has food and meal endpoints, and will be consumed by a seprate frontend to create a calorie tracker app. 
  
-See it deployed here: URL-COMING-SOON  <br>
+See it deployed here: https://enigmatic-beach-47018.herokuapp.com/ <br>
 Checkout the frontend here: https://github.com/mnhollandplum/calorie-tracker-fe
 ## How to Use
 
