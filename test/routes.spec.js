@@ -2,6 +2,8 @@ const chai = require('chai');
 const should = chai.should();
 const chaiHttp = require('chai-http');
 const server = require('../index');
+after(() => request.server.close());
+
 
 chai.use(chaiHttp);
 
@@ -23,6 +25,7 @@ describe('Client Routes', () => {
     .end((err, response) => {
       response.should.have.status(404);
       done();
+      process.exit(0);
     });
   });
 });
