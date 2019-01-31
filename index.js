@@ -19,4 +19,31 @@ app.listen(app.get('port'), () => {
   console.log(`${app.locals.title} is running on ${app.get('port')}.`);
 });
 
+app.get('/api/v1/foods', (request, response) => {
+  database('foods').select()
+    .then((foods) => {
+      response.status(200).json(foods);
+    })
+    .catch((error) => {
+      response.status(500).json({ error });
+    });
+});
+
+
+app.get('/api/v1/foods/:id', (request, response) => {
+  database('foods').where('id', request.params.id).select()
+    .then(foods => {
+      if (foods.length) {
+        response.status(200).json(foods[0]);
+      } else {
+        response.status(404).json({
+          error: `Could not find food with id ${request.params.id}`
+        });
+      }
+    })
+    .catch(error => {
+      response.status(500).json({ error });
+    });
+});
+
 module.exports = app
