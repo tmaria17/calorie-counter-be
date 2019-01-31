@@ -58,8 +58,8 @@ app.post('/api/v1/foods', (request, response) => {
   }
 
   database('foods').insert(food, 'id')
-    .then(paper => {
-      response.status(201).json({ id: paper[0] })
+    .then(food => {
+      response.status(201).json({ "food": request.body })
     })
     .catch(error => {
       response.status(500).json({ error });
