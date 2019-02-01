@@ -82,7 +82,7 @@ describe('API Routes for Foods', () => {
     });
   });
 
-  describe('PATCH /api/v1/foods',() => {
+  describe('PATCH /api/v1/foods/:id',() => {
     it('should return updated food info', done => {
       chai.request(server)
       .patch('/api/v1/foods/4')
@@ -101,6 +101,21 @@ describe('API Routes for Foods', () => {
          response.body.food.name.should.equal('Chocolate Froggos');
        });
        done();
+    });
+  });
+  describe('DELETE /api/v1/foods/:id',() => {
+    it('should delete a specific food', done => {
+      chai.request(server)
+      .delete('/api/v1/foods/2')
+      .end((err, response) => {
+        response.should.have.status(204);
+      chai.request(server)
+       .get('/api/v1/foods/2')
+       .end((err, response) => {
+         response.should.have.status(404);
+       done();
+       });
+      });
     });
   });
 
