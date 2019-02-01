@@ -96,10 +96,10 @@ app.delete('/api/v1/foods/:id', (request, response) => {
     } else {
       response.status(404).json({ error });
     }
-  })
-  .catch((error) => {
-    response.status(500).json({ error });
   });
+  // .catch((error) => {
+  //   response.status(500).json({ error });
+  // });
 });
 
 module.exports = app
