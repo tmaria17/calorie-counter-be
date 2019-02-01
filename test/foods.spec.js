@@ -103,20 +103,21 @@ describe('API Routes for Foods', () => {
        done();
     });
   });
+
   describe('DELETE /api/v1/foods/:id',() => {
-    it('should delete a specific food', done => {
-      chai.request(server)
-      .delete('/api/v1/foods/1')
+   it('should delete a specific food', done => {
+     chai.request(server)
+     .delete('/api/v1/foods/1')
+     .end((err, response) => {
+       response.should.have.status(204);
+     chai.request(server)
+      .get('/api/v1/foods/1')
       .end((err, response) => {
-        response.should.have.status(204);
-      chai.request(server)
-       .get('/api/v1/foods/1')
-       .end((err, response) => {
-         response.should.have.status(404);
-       done();
-       });
+        response.should.have.status(404);
+      done();
       });
-    });
-  });
+     });
+   });
+ });
 
 });
