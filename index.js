@@ -92,7 +92,7 @@ app.delete('/api/v1/foods/:id', (request, response) => {
   database('foods').where('id', request.params.id).del()
   .then(foods => {
     if (foods == 1) {
-      response.status(204).json({success: true});
+      response.status(204).json( );
     } else {
       response.status(404).json({ error });
     }
