@@ -114,9 +114,9 @@ describe('API Routes for Foods', () => {
       .get('/api/v1/foods/1')
       .end((err, response) => {
         response.should.have.status(404);
-      done();
       });
      });
+     done();
    });
  });
 
