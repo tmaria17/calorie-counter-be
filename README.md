@@ -1,4 +1,6 @@
 # calorie-counter-be
+[![Waffle.io - Columns and their card count](https://badge.waffle.io/tmaria17/calorie-counter-be.svg?columns=all)](https://waffle.io/tmaria17/calorie-counter-be)
+[![Build Status](https://travis-ci.org/tmaria17/calorie-counter-be.svg?branch=master)](https://travis-ci.org/tmaria17/calorie-counter-be)
 
 ## Introduction
  This project is an express API. This API has food and meal endpoints, and will be consumed by a seprate frontend to create a calorie tracker app. 
