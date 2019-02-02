@@ -134,6 +134,16 @@ app.get('/api/v1/meals/:meal_id/foods', (request, response) => {
   });
 });
 
+app.post('/api/v1/meals/:meal_id/foods/:food_id', (request, response) => {
+  database('meal_foods').insert({'food_id': request.params.food_id, 'meal_id': request.params.meal_id})
+    .then(new_mealfood => {
+      response.status(201).json({ "message": "Successfully added food to meal"})
+    })
+    .catch(error => {
+      response.status(400).json({ error });
+    });
+});
+
 
 
 module.exports = app
