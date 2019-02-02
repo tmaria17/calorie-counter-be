@@ -17,6 +17,6 @@ knex.schema.createTable('meal_foods', function(table) {
 
 exports.down = function (knex, Promise) {
   return Promise.all([
-    knex.schema.dropTable('meals'),
+    knex.schema.dropTable('meal_foods'),
   ]);
 }
