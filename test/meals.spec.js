@@ -26,19 +26,21 @@ describe('API Routes for Meals', () => {
       });
   });
 
-  describe('GET /api/v1/foods', () => {
-    it('should return all foods', done => {
+  describe('GET /api/v1/meals', () => {
+    it('should return all meals', done => {
       chai.request(server)
-       .get('/api/v1/foods')
+       .get('/api/v1/meals')
        .end((err, response) => {
          response.should.have.status(200);
          response.should.be.json;
          response.body.should.be.a('array');
          response.body.length.should.equal(3);
+         response.body[0].should.have.property('id');
          response.body[0].should.have.property('name');
-         response.body[0].should.have.property('calories');
-         response.body[0].name.should.equal('Burger');
-         response.body[0].calories.should.equal(365);
+         response.body[0].name.should.equal('Breakfast');
+         response.body[0].should.have.property('foods');
+         response.body[0].foods[0].should.have.property('id');
+         response.body[0].foods[0].name.should.equal('Burger');
          done();
        });
      });
