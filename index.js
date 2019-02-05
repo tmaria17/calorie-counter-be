@@ -98,6 +98,8 @@ app.delete('/api/v1/foods/:id', (request, response) => {
       response.status(404);
     });
 });
+
+
 //meal endpoints
 
 app.get('/api/v1/meals', (request, response) => {
@@ -109,6 +111,7 @@ app.get('/api/v1/meals', (request, response) => {
     JOIN meal_foods ON meals.id = meal_foods.meal_id
     JOIN foods ON meal_foods.food_id = foods.id
     GROUP BY meals.id`)
+
     .then((meals) => {
       response.status(200).json(meals.rows)
     })
@@ -151,19 +154,19 @@ app.post('/api/v1/meals/:meal_id/foods/:food_id', (request, response) => {
     });
 });
 
-// app.delete('/api/v1/meals/:meal_id/foods/:food_id', (request, response) => {
-//   database('meal_foods').where('food_id', request.params.food_id).del()
-//   .then(foods => {
-//     if (foods == 1) {
-//       response.status(204).json({success: true});
-//     } else {
-//       response.status(404).json({ error });
-//     }
-//   })
-//   .catch((error) => {
-//     response.status(500).json({ error });
-//   });
-// });
+app.delete('/api/v1/meals/:meal_id/foods/:food_id', (request, response) => {
+  database('meal_foods').where('food_id', request.params.food_id).del()
+  .then(foods => {
+    if (foods == 1) {
+      response.status(204).json({success: true});
+    } else {
+      response.status(404).json({ error });
+    }
+  })
+  .catch((error) => {
+    response.status(500).json({ error });
+  });
+});
 
 
 
