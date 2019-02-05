@@ -98,16 +98,26 @@ app.delete('/api/v1/foods/:id', (request, response) => {
       response.status(404);
     });
 });
+
+
 //meal endpoints
 
 app.get('/api/v1/meals', (request, response) => {
-  database('meals').select()
+  database.raw(`
+    SELECT meals.id, meals.name, array_to_json
+    (array_agg(json_build_object('id', foods.id, 'name', foods.name, 'calories', foods.calories)))
+    AS foods
+    FROM meals
+    JOIN meal_foods ON meals.id = meal_foods.meal_id
+    JOIN foods ON meal_foods.food_id = foods.id
+    GROUP BY meals.id`)
+
     .then((meals) => {
-      response.status(200).json(meals);
+      response.status(200).json(meals.rows)
     })
     .catch((error) => {
-      response.status(500).json({ error });
-    });
+      response.status(404).json({ error })
+  })
 });
 
 app.get('/api/v1/meals/:meal_id/foods', (request, response) => {

@@ -34,7 +34,7 @@ describe('API Routes for Foods', () => {
            response.should.have.status(200);
            response.should.be.json;
            response.body.should.be.a('array');
-           response.body.length.should.equal(3);
+           response.body.length.should.equal(4);
            response.body[0].should.have.property('name');
            response.body[0].should.have.property('calories');
            response.body[0].name.should.equal('Burger');

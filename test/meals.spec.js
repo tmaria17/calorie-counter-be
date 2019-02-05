@@ -26,26 +26,28 @@ describe('API Routes for Meals', () => {
       });
   });
 
-  describe('GET /api/v1/foods', () => {
-    it('should return all foods', done => {
+  describe('GET /api/v1/meals', () => {
+    xit('should return all meals and their foods', done => {
       chai.request(server)
-       .get('/api/v1/foods')
+       .get('/api/v1/meals')
        .end((err, response) => {
          response.should.have.status(200);
          response.should.be.json;
          response.body.should.be.a('array');
          response.body.length.should.equal(3);
+         response.body[0].should.have.property('id');
          response.body[0].should.have.property('name');
-         response.body[0].should.have.property('calories');
-         response.body[0].name.should.equal('Burger');
-         response.body[0].calories.should.equal(365);
+         response.body[0].name.should.equal('Breakfast');
+         response.body[0].should.have.property('foods');
+         response.body[0].foods[0].should.have.property('id');
+         response.body[0].foods[0].name.should.equal('Burger');
          done();
        });
      });
    });
 
   describe('GET /api/v1/meals/:meal_id/foods', () => {
-    it('should return an array of meals with arrays of food objects', done => {
+    it('should return a meal with arrays of food objects', done => {
       chai.request(server)
       .get('/api/v1/meals/1/foods')
       .end((err, response) => {
@@ -63,7 +65,7 @@ describe('API Routes for Meals', () => {
     })
 
   describe('POST /api/v1/meals/:meal_id/foods/:food_id', () => {
-    it('should successfully create a new MealFood resource', done => {
+    it('should successfully create a new mealfood', done => {
       chai.request(server)
         .post('/api/v1/meals/1/foods/1?date=1')
         .end((err, response) => {
@@ -85,7 +87,7 @@ describe('API Routes for Meals', () => {
     });
 
   describe('DELETE /api/v1/meals/:meal_id/foods/:food_id', () => {
-   it('should delete a specific food from a meal entry', done => {
+   it('should delete a specific food from a meal', done => {
       chai.request(server)
         .delete('/api/v1/meals/1/foods/1')
         .end((err, response) => {
