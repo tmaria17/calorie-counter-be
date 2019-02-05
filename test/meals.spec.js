@@ -27,7 +27,7 @@ describe('API Routes for Meals', () => {
   });
 
   describe('GET /api/v1/meals', () => {
-    it('should return all meals', done => {
+    xit('should return all meals and their foods', done => {
       chai.request(server)
        .get('/api/v1/meals')
        .end((err, response) => {
@@ -47,7 +47,7 @@ describe('API Routes for Meals', () => {
    });
 
   describe('GET /api/v1/meals/:meal_id/foods', () => {
-    it('should return an array of meals with arrays of food objects', done => {
+    it('should return a meal with arrays of food objects', done => {
       chai.request(server)
       .get('/api/v1/meals/1/foods')
       .end((err, response) => {
@@ -65,7 +65,7 @@ describe('API Routes for Meals', () => {
     })
 
   describe('POST /api/v1/meals/:meal_id/foods/:food_id', () => {
-    it('should successfully create a new MealFood resource', done => {
+    it('should successfully create a new mealfood', done => {
       chai.request(server)
         .post('/api/v1/meals/1/foods/1?date=1')
         .end((err, response) => {
@@ -87,7 +87,7 @@ describe('API Routes for Meals', () => {
     });
 
   describe('DELETE /api/v1/meals/:meal_id/foods/:food_id', () => {
-   it('should delete a specific food from a meal entry', done => {
+   it('should delete a specific food from a meal', done => {
       chai.request(server)
         .delete('/api/v1/meals/1/foods/1')
         .end((err, response) => {
