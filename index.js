@@ -21,6 +21,16 @@ app.use(function (request, response, next) {
   next();
 });
 
+app.use(function (request, response, next) {
+  response.header("Access-Control-Allow-Origin",
+    "*");
+  response.header("Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept");
+  response.header("Access-Control-Allow-Methods",
+    "GET, POST, PATCH, DELETE, OPTIONS");
+  next();
+});
+
 app.get('/', (request, response) => {
   response.send('Welcome to Calorie Tracker');
 });
