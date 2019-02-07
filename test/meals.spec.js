@@ -93,7 +93,7 @@ describe('API Routes for Meals', () => {
         .end((err, response) => {
         response.should.have.status(204);
       chai.request(server)
-        .get('/api/v1/mealfoods/1')
+        .get('/api/v1/meals/1/foods/1')
         .end((err, response) => {
       response.should.have.status(404);
       done();
