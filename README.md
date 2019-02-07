@@ -217,4 +217,8 @@ To contribute to this project please fork and submit a pull request
 * [JavaScript](https://www.javascript.com/)
 * [Express](https://expressjs.com/)
 * [PostgreSQL](https://www.postgresql.org/)
+* Node.js
+* Knex
+* Mocha
+* Chai
 
