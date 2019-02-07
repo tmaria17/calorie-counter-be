@@ -19,6 +19,66 @@ Checkout the frontend here: https://github.com/mnhollandplum/calorie-tracker-fe
   ## Endpoints 
   
   * GET /api/v1/foods
+  ``` 
+  [
+{
+"id": 1,
+"name": "Burger",
+"calories": 365,
+"created_at": "2019-02-07T04:41:18.449Z",
+"updated_at": "2019-02-07T04:41:18.449Z"
+},
+{
+"id": 2,
+"name": "Yogurt",
+"calories": 100,
+"created_at": "2019-02-07T04:41:18.449Z",
+"updated_at": "2019-02-07T04:41:18.449Z"
+},
+{
+"id": 3,
+"name": "Asparagus",
+"calories": 75,
+"created_at": "2019-02-07T04:41:18.449Z",
+"updated_at": "2019-02-07T04:41:18.449Z"
+},
+{
+"id": 4,
+"name": "Milkshake",
+"calories": 450,
+"created_at": "2019-02-07T04:41:18.449Z",
+"updated_at": "2019-02-07T04:41:18.449Z"
+},
+{
+"id": 5,
+"name": "Butterbeer",
+"calories": 200,
+"created_at": "2019-02-07T04:44:10.046Z",
+"updated_at": "2019-02-07T04:44:10.046Z"
+},
+{
+"id": 6,
+"name": "Apple ",
+"calories": 100,
+"created_at": "2019-02-07T04:48:27.579Z",
+"updated_at": "2019-02-07T04:48:27.579Z"
+},
+{
+"id": 7,
+"name": "Orange",
+"calories": 90,
+"created_at": "2019-02-07T05:04:25.354Z",
+"updated_at": "2019-02-07T05:04:25.354Z"
+},
+{
+"id": 8,
+"name": "Cake",
+"calories": 350,
+"created_at": "2019-02-07T05:08:53.513Z",
+"updated_at": "2019-02-07T05:08:53.513Z"
+}
+]
+  ```
   
   * GET /api/v1/foods/:id
   
